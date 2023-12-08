@@ -12,10 +12,6 @@ const FriendListWidget = ({ userId, isProfile }) => {
     const token = useSelector((state) => state.token);
     const isSelf = _id === userId;
     const { friends } = useSelector((state) => (isProfile && !isSelf ? state.otherUser : state.user));
-    console.log('isSelf', isSelf);
-    console.log('userId', userId);
-    console.log('friends');
-    console.log(friends);
 
     const host = {
         url: process.env.REACT_APP_HOST_URL,
@@ -48,7 +44,7 @@ const FriendListWidget = ({ userId, isProfile }) => {
             <Typography color={palette.neutral.dark} variant="h5" fontWeight="500" sx={{ mb: '1.5rem' }}>
                 Friend List
             </Typography>
-            <Box display="flex" flexDirection="column" gap="1.5rem">
+            <Box display="flex" flexDirection="column" gap="1.6rem">
                 {friends.map((friend) => (
                     <Friend
                         key={friend._id}
