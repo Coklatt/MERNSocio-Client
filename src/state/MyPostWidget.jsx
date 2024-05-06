@@ -34,8 +34,7 @@ const MyPostWidget = ({ picturePath }) => {
     const { _id } = useSelector((state) => state.user);
     const token = useSelector((state) => state.token);
     const isNonMobileScreens = useMediaQuery('(min-width:1000px)');
-    const mediumMain = palette.neutral.mediumMain;
-    const medium = palette.neutral.medium;
+    const { mediumMain, medium } = palette.neutral;
 
     const host = {
         url: process.env.REACT_APP_HOST_URL,
@@ -68,7 +67,7 @@ const MyPostWidget = ({ picturePath }) => {
             <FlexBetween gap="1.5rem">
                 <UserImage image={picturePath} />
                 <InputBase
-                    placeholder="What's in your mind..."
+                    placeholder="Share your story..."
                     onChange={(e) => setPost(e.target.value)}
                     value={post}
                     sx={{
@@ -134,23 +133,23 @@ const MyPostWidget = ({ picturePath }) => {
 
                 {isNonMobileScreens ? (
                     <>
-                        <FlexBetween gap="0.25rem">
+                        <FlexBetween gap="0.3rem">
                             <GifBoxOutlined sx={{ color: mediumMain }} />
                             <Typography color={mediumMain}>Clip</Typography>
                         </FlexBetween>
 
-                        <FlexBetween gap="0.25rem">
+                        <FlexBetween gap="0.3rem">
                             <AttachFileOutlined sx={{ color: mediumMain }} />
                             <Typography color={mediumMain}>Attachment</Typography>
                         </FlexBetween>
 
-                        <FlexBetween gap="0.25rem">
+                        <FlexBetween gap="0.3rem">
                             <MicOutlined sx={{ color: mediumMain }} />
                             <Typography color={mediumMain}>Audio</Typography>
                         </FlexBetween>
                     </>
                 ) : (
-                    <FlexBetween gap="025.rem">
+                    <FlexBetween gap="03.rem">
                         <MoreHorizOutlined sx={{ color: mediumMain }} />
                     </FlexBetween>
                 )}
